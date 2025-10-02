@@ -16,7 +16,7 @@ namespace Test_technique
             builder.Configuration.AddJsonFile(dataPath, optional: false, reloadOnChange: true);
 
             builder.Services.AddOptions<Data>()
-                   .Bind(builder.Configuration.GetSection("Data"));
+                   .Bind(builder.Configuration);
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
