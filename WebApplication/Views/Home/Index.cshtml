@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1><p class="display-4">simulation de la propagation d’un feu de forêt.</p></h1>
+    <h3 class="display-4"><button id="start">Démarrer</button></h3>
+</div>
+
+<!-- #region forêt -->
+<div class="text-center">
+    <div class="center">
+        <canvas id="c" width="560" height="560"></canvas>
+    </div>
+    <div id="controls">
+        <button id="step">Étape</button>
+        <button id="reset">Réinitialiser</button>
+    </div>
+    @* les valeur correspondante au  etat de chaque case
+    - 0 == arbre vert (etat initial)
+    - 1 == arbre en feu
+    - 2 == arbre en sendre
+    *@
+</div>
+<!-- #endregion -->

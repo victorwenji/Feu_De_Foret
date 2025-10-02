@@ -62,7 +62,7 @@ function draw() {
 function start() {
     if (running) return;
     running = true;
-    timer = setInterval(nextStep, 1200); // vitesse de propagation du feu.
+    timer = setInterval(nextStep, 120); // vitesse de propagation du feu.
 }
 function stop(msg) {
     running = false;

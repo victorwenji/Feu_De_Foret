@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using Test_technique.Models;
+
 namespace Test_technique
 {
     public class Program
@@ -7,6 +10,15 @@ namespace Test_technique
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddRazorPages();
+
+            var dataPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "data.json");
+            builder.Configuration.AddJsonFile(dataPath, optional: false, reloadOnChange: true);
+
+            builder.Services.AddOptions<Data>()
+                   .Bind(builder.Configuration.GetSection("Data"));
+
+            builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
 
             var app = builder.Build();
@@ -20,14 +32,14 @@ namespace Test_technique
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.MapRazorPages();
-
+           
             app.Run();
         }
     }
